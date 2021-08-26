@@ -3,7 +3,9 @@ const cloudinary = require("cloudinary");
 const router = express.Router();
 const Cake = require("../models/cakes");
 
-// Get all cakes
+/**
+ * Returns all cakes
+ */
 router.get("/", async (req, res) => {
   try {
     const cake = await Cake.find().limit().sort({ createdDate: -1 });
@@ -13,8 +15,10 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get one cake
-router.get("/:_id", getPost, (req, res) => {
+/**
+ * returns a single cake
+ */
+router.get("/:_id", getCake, (req, res) => {
   res.json({
     message: "A cake found",
     success: true,
@@ -22,7 +26,9 @@ router.get("/:_id", getPost, (req, res) => {
   });
 });
 
-// Create one cake
+/**
+ * Creates a Cake
+ */
 router.post("/", async (req, res) => {
   let dataRecieved = JSON.parse(req.body.cake);
   const base64 = "data:image/jpeg;base64," + dataRecieved.imageUrl.value;
@@ -42,6 +48,12 @@ router.post("/", async (req, res) => {
     });
 });
 
+/**
+ *
+ * @param {*} image
+ * @param {*} cakeData
+ * @param {*} res
+ */
 async function saveCake(image, cakeData, res) {
   const cake = new Cake({
     name: cakeData.name,
@@ -62,8 +74,10 @@ async function saveCake(image, cakeData, res) {
   }
 }
 
-// Delete a cake
-router.delete("/:_id", getPost, async (req, res) => {
+/**
+ * Endpoint that delete a cake
+ */
+router.delete("/:_id", getCake, async (req, res) => {
   try {
     await res.cake.remove();
     res.json({
@@ -76,7 +90,7 @@ router.delete("/:_id", getPost, async (req, res) => {
   }
 });
 
-async function getPost(req, res, next) {
+async function getCake(req, res, next) {
   try {
     cake = await Cake.findOne({ _id: req.params._id });
     if (cake == null) {

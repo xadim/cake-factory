@@ -4,16 +4,11 @@ var bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const fileUpload = require("express-fileupload");
 
 require("dotenv").config({ path: __dirname + "/.env" });
 
 console.log("cakefactory. running..");
-console.log("Server started");
 
-const http = require("http");
-const util = require("util");
-const Formidable = require("formidable");
 const cloudinary = require("cloudinary");
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -66,11 +61,7 @@ app.use(
   })
 );
 
-app.use(fileUpload());
-
 const cakesRouter = require("./routes/cakes");
 app.use("/cakes", cakesRouter);
 
 app.listen(process.env.PORT || 5000);
-
-// nodemon index.js --inspect
