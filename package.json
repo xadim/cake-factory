@@ -24,7 +24,8 @@
     "mongoose": "^5.9.4",
     "nodemailer": "^6.4.5",
     "qs": "^6.10.1",
-    "stripe": "^8.32.0"
+    "stripe": "^8.32.0",
+    "validatorjs": "^3.22.1"
   },
   "devDependencies": {
     "morgan": "^1.10.0",

@@ -7,6 +7,10 @@ const Cakeschema = new mongoose.Schema(
       type: Number,
       required: true,
       maxLength: 1,
+      validate: {
+        validator: Number.isInteger,
+        message: "{VALUE} is not an integer value",
+      },
     },
     name: {
       type: String,

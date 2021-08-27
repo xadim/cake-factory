@@ -19,11 +19,6 @@ the source files.
 The project has been deployed on firebase and a demo can be seen here
 https://cake-fact.firebaseapp.com/
 
-## Screenshots
-
-![alt text](assets/screenshots/cake-factory-screenshot-new.png)
-![alt text](assets/screenshots/cake-factory-screenshot-grid.png)
-
 ## TODO / Features
 
 1- Edit a Cake 2- Add multiple images 3- Auth 4- ...

@@ -1,7 +1,10 @@
+// src/routes/cakes.js
+
 const express = require("express");
 const cloudinary = require("cloudinary");
 const router = express.Router();
 const Cake = require("../models/cakes");
+const validation = require("../middleware/validation-middleware").cakeValidator;
 
 /**
  * Returns all cakes
@@ -29,10 +32,10 @@ router.get("/:_id", getCake, (req, res) => {
 /**
  * Creates a Cake
  */
-router.post("/", async (req, res) => {
+router.post("/", validation, async (req, res) => {
   let dataRecieved = JSON.parse(req.body.cake);
   const base64 = "data:image/jpeg;base64," + dataRecieved.imageUrl.value;
-  const uploadResponse = await cloudinary.uploader
+  await cloudinary.uploader
     .upload(base64, {
       use_filename: true,
       public_id: "/cake-factory/hadim",
