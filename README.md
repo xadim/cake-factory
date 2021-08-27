@@ -2,7 +2,11 @@
 
 ===================
 
-This project is NODE JS express API application.
+Cake Factory is a powered by Node.js software that supports MongoDB database.
+
+## Dependencies Installation
+
+`npm install`
 
 ## Development server
 
@@ -14,6 +18,11 @@ the source files.
 
 The project has been deployed on firebase and a demo can be seen here
 https://cake-fact.firebaseapp.com/
+
+## Screenshots
+
+![alt text](assets/screenshots/cake-factory-screenshot-new.png)
+![alt text](assets/screenshots/cake-factory-screenshot-grid.png)
 
 ## TODO / Features
 
