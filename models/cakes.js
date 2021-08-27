@@ -3,23 +3,24 @@ const mongoose = require("mongoose");
 
 const Cakeschema = new mongoose.Schema(
   {
-    // _id: {
-    //   type: Number,
-    // },
     yumFactor: {
       type: Number,
       required: true,
+      maxLength: 1,
     },
     name: {
       type: String,
       required: true,
+      maxLength: 30,
     },
     comment: {
       type: String,
-      required: false,
+      required: true,
+      maxLength: 200,
     },
     imageUrl: {
       type: String,
+      required: true,
     },
     createdDate: {
       type: Date,
