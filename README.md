@@ -2,7 +2,8 @@
 
 ===================
 
-Cake Factory is a powered by Node.js software that supports MongoDB database.
+Cake Factory Api is a powered by Node.js software that is RESTful api
+application and supports MongoDB database.
 
 ## Dependencies Installation
 
