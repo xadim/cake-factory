@@ -26,6 +26,9 @@ const Cakeschema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    public_id: {
+      type: String,
+    },
     createdDate: {
       type: Date,
       required: true,

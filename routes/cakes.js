@@ -38,9 +38,6 @@ router.post("/", validation, async (req, res) => {
   await cloudinary.uploader
     .upload(base64, {
       use_filename: true,
-      public_id: "/cake-factory/hadim",
-      resource_type: "image",
-      transformation: "cake_image",
     })
     .then((result) => {
       console.log(result);
@@ -62,6 +59,7 @@ async function saveCake(image, cakeData, res) {
     name: cakeData.name,
     comment: cakeData.comment,
     imageUrl: image.secure_url,
+    public_id: image.public_id,
     yumFactor: cakeData.yumFactor,
   });
   try {
@@ -81,8 +79,15 @@ async function saveCake(image, cakeData, res) {
  * Endpoint that delete a cake
  */
 router.delete("/:_id", getCake, async (req, res) => {
+  const public_id = res.cake.public_id;
+  // return;
   try {
     await res.cake.remove();
+    // Delete image from cloudinary
+    cloudinary.uploader.destroy(public_id, function (result) {
+      console.log(result);
+    });
+
     res.json({
       message: "Cake ID #" + res.cake._id + " successfully deleted.",
       success: true,
