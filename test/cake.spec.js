@@ -13,8 +13,8 @@ var urlBase = "http://localhost:5000";
  * Test for the cakes endpoint that returns all the cakes
  */
 describe("cakeFactory API test", () => {
-  it("Should return all cakes", async () => {
-    await request.get(
+  it("Should return all cakes", (done) => {
+    request.get(
       {
         url: urlBase + "/cakes",
       },
@@ -33,13 +33,14 @@ describe("cakeFactory API test", () => {
         }
       }
     );
+    done();
   });
 
   /**
    * Test for a single cake
    */
-  it("Should return a single cake with ID #61262935c804cd158c9a7ea3", async () => {
-    await request.get(
+  it("Should return a single cake with ID #61262935c804cd158c9a7ea3", (done) => {
+    request.get(
       {
         url: urlBase + "/cakes/61262935c804cd158c9a7ea3",
       },
@@ -61,12 +62,14 @@ describe("cakeFactory API test", () => {
         }
       }
     );
+    done();
   });
 
   /**
    * Test creating a single cake
    */
-  it("Should POST/CREATE a single cake", async () => {
+  it("Should POST/CREATE a single cake", (done) => {
     //   ...
+    done();
   });
 });
