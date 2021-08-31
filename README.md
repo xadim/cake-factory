@@ -34,7 +34,7 @@ Run `nodemon server.js --inspect` for a dev server. Navigate to
 `http://localhost:5000/`. The app will automatically reload if you change any of
 the source files.
 
-## API test
+## Automated API test
 
 An Automatic REST JSON API Testing system has been implemented using Mocha &
 Chai. By simply running `mocha` should test the api endpoints.
