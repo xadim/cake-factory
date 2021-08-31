@@ -2,12 +2,13 @@
  * API Cake testing
  * @author Khadime Diakhate
  */
+require("dotenv").config({ path: __dirname + "/.env" });
 
-var should = require("should");
-var request = require("request");
-var chai = require("chai");
-var expect = chai.expect;
-var urlBase = "http://localhost:5000";
+let should = require("should");
+let request = require("request");
+let chai = require("chai");
+let expect = chai.expect;
+let urlBase = "http://localhost:5000";
 
 /**
  * Test for the cakes endpoint that returns all the cakes
@@ -19,7 +20,7 @@ describe("cakeFactory API test", () => {
         url: urlBase + "/cakes",
       },
       function (error, response, body) {
-        var _body = {};
+        let _body = {};
         try {
           _body = JSON.parse(body);
         } catch (e) {
@@ -45,7 +46,7 @@ describe("cakeFactory API test", () => {
         url: urlBase + "/cakes/61262935c804cd158c9a7ea3",
       },
       function (error, response, body) {
-        var _body = {};
+        let _body = {};
         try {
           _body = JSON.parse(body);
         } catch (e) {
