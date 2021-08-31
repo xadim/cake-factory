@@ -21,6 +21,7 @@ describe("cakeFactory API test", () => {
       },
       function (error, response, body) {
         let _body = {};
+        let cake = {};
         try {
           _body = JSON.parse(body);
         } catch (e) {
@@ -28,9 +29,10 @@ describe("cakeFactory API test", () => {
         }
 
         expect(response.statusCode).to.equal(200);
-
-        if (_body[0].should.have.property("_id")) {
-          expect(_body[0]).to.have.property("yumFactor", 5);
+        cake = _body[0];
+        // console.log(cake);
+        if (cake.should.have.property("_id")) {
+          expect(cake).to.have.property("yumFactor", 5);
         }
       }
     );
@@ -41,9 +43,10 @@ describe("cakeFactory API test", () => {
    * Test for a single cake
    */
   it("Should return a single cake with ID #61262935c804cd158c9a7ea3", (done) => {
+    const id = "61262935c804cd158c9a7ea3";
     request.get(
       {
-        url: urlBase + "/cakes/61262935c804cd158c9a7ea3",
+        url: urlBase + "/cakes/" + id,
       },
       function (error, response, body) {
         let _body = {};
@@ -58,7 +61,7 @@ describe("cakeFactory API test", () => {
 
           // check the cake's property ID
           if (_body.data.should.have.property("_id")) {
-            expect(_body.data._id).to.equal("61262935c804cd158c9a7ea3");
+            expect(_body.data._id).to.equal(id);
           }
         }
       }
