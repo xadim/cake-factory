@@ -63,7 +63,7 @@ async function saveCake(image, cakeData, res) {
   });
   try {
     const newCake = await cake.save();
-    console.log(newCake);
+    // console.log(newCake);
     res.status(201).json({
       message:
         "The cake code #" + newCake._id + " has been saved successfully.. ",
@@ -103,8 +103,6 @@ async function getCake(req, res, next) {
     cake = await Cake.findOne({
       $or: [{ _id: req.params._id }, { name: req.params._id }],
     });
-    // console.log("Cake Found");
-    // console.log(cake);
     if (cake == null) {
       return res.json({
         message: "Cant find cake ID #" + req.params._id,
