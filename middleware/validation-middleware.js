@@ -9,6 +9,7 @@ const cakeValidator = (req, res, next) => {
     comment: "required|string|max:200",
     // yumFactor: "required|int|max:1",
   };
+  // console.log(req.body);
   let cake = JSON.parse(req.body.cake);
   cake.imageUrl = cake.imageUrl.value;
   validator(cake, validationRule, {}, (err, status) => {

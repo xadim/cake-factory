@@ -40,7 +40,6 @@ router.post("/", validation, async (req, res) => {
       use_filename: true,
     })
     .then((result) => {
-      console.log(result);
       saveCake(result, dataRecieved, res);
     })
     .catch((error) => {
@@ -64,6 +63,7 @@ async function saveCake(image, cakeData, res) {
   });
   try {
     const newCake = await cake.save();
+    console.log(newCake);
     res.status(201).json({
       message:
         "The cake code #" + newCake._id + " has been saved successfully.. ",
@@ -94,13 +94,17 @@ router.delete("/:_id", getCake, async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({ message: err.message });
+    res.status(500).json({ message: err.message, success: false });
   }
 });
 
 async function getCake(req, res, next) {
   try {
-    cake = await Cake.findOne({ _id: req.params._id });
+    cake = await Cake.findOne({
+      $or: [{ _id: req.params._id }, { name: req.params._id }],
+    });
+    // console.log("Cake Found");
+    // console.log(cake);
     if (cake == null) {
       return res.json({
         message: "Cant find cake ID #" + req.params._id,
@@ -108,6 +112,7 @@ async function getCake(req, res, next) {
       });
     }
   } catch (err) {
+    // console.log(err);
     return res.status(500).json({ message: err.message });
   }
 

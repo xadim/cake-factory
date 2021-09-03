@@ -26,7 +26,7 @@ deliver images and videos · Create, <br/>**Mocha**: is a feature-rich JavaScrip
 test framework running on Node.js and in the browser, making asynchronous
 testing simple and fun <br/> **Chai**: Chai is a BDD / TDD assertion library for
 node and the browser that can be delightfully paired with any javascript testing
-framework.
+framework.<br/>**SuperTest**: HTTP assertions made easy.
 
 ## Development server
 
