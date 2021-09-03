@@ -28,6 +28,11 @@ testing simple and fun <br/> **Chai**: Chai is a BDD / TDD assertion library for
 node and the browser that can be delightfully paired with any javascript testing
 framework.<br/>**SuperTest**: HTTP assertions made easy.
 
+## Insfrastructure Requirements
+1. Node >=14.16.1
+2. MongoDB Database Collection
+3. Cloudinary Keys
+
 ## Development server
 
 Run `nodemon server.js --inspect` for a dev server. Navigate to

@@ -2,9 +2,7 @@
  * API Cake testing
  * @author Khadime Diakhate
  */
-const FormData = require("form-data");
 let should = require("should");
-// let request = require("request");
 let chai = require("chai");
 let expect = chai.expect;
 let urlBase = "http://localhost:5000";
